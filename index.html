@@ -6,35 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
     <script src="script.js"></script>
-    <title>Document</title>
-    <!-- <link rel="icon" href="img/….png"> -->
+    <title>Quiz-App</title>
+    <link rel="icon" href="./img/bunny_small.png">
 </head>
 
-<body onload="includeHTML()">
-    <!--
-    header
-    -->
-    <!-- <div w3-include-html="templates/header.html"></div> -->
+<body onload="init()">
 
-    <!--
-    burger
-    -->
-    <!-- <div w3-include-html="templates/burger.html"></div> -->
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Quiz-App</span>
+        </div>
+    </nav>
 
-    <!--
-    
-    -->
+    <div class="container">
+        <div class="card quizCard">
+            <img src="./img/quizbackground.jpg" class="card-img-top" id="quizImageId">
 
+            <div class="progress" role="progressbar">
+                <div class="progress-bar" style="width: 0%" id="progressId"></div>
+            </div>
 
+            <div class="card-body d-none card-body-style text-center" id="endScreen">
+                <div class="text-center">Quiz beendet!</div>
+                <div class="text-center">Du hast <b id="amountRightQuestionsId"></b> / <b
+                        id="endScreenAmountQuestionsId"></b> Fragen richtig beantwortet.</div>
+                <button class="btn btn-warning againBtn" onclick="restartGame()">Nochmal?</button>
+            </div>
 
+            <div class="card-body" id="questionBody">
+                <div id="removeQuestionContent">
+                    <h5 class="card-title" id="questionId"></h5>
 
+                    <div class="card quizAnswerCard mb-2" onclick="answer('answer1')">
+                        <div class="card-body" id="answer1">
+                        </div>
+                    </div>
+                    <div class="card quizAnswerCard mb-2" onclick="answer('answer2')">
+                        <div class="card-body" id="answer2">
+                        </div>
+                    </div>
+                    <div class="card quizAnswerCard mb-2" onclick="answer('answer3')">
+                        <div class="card-body" id="answer3">
+                        </div>
+                    </div>
+                    <div class="card quizAnswerCard mb-2" onclick="answer('answer4')">
+                        <div class="card-body" id="answer4">
+                        </div>
+                    </div>
+                    <div class="questionFooter">
+                        <span>
+                            <b id="currentQuestionId"></b> von <b id="amountQuestionsId"></b> Fragen
+                        </span>
+                        <button type="button" class="btn btn-warning" disabled id="nextId"
+                            onclick="nextQuestion()">Nächste
+                            Frage</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!--
+        <!--
     footer
     -->
-    <!-- <div w3-include-html="templates/header.html"></div> -->
+        <!-- <div w3-include-html="templates/header.html"></div> -->
 </body>
 
 </html>
